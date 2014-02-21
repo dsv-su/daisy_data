@@ -1,0 +1,27 @@
+<?php
+
+/**
+ * @file
+ * Provides an input filter which inserts employee contact list from Daisy.
+ */
+
+/**
+* Implements hook_filter_info().
+*/
+function daisy_contact_list_filter_info() {
+  $filters = array();
+  $filters['daisy_data'] = array(
+    'title' => t('Inserts employee contact list from Daisy'),
+    'process callback' => '_daisy_contact_list_filter',
+  );
+  return $filters;
+}
+
+/** 
+* Filter callback for daisy_contact_list filter.
+*/
+function _daisy_contact_list_filter($text, $filter, $format, $langcode, $cache, $cache_id) {
+  	$parsedinfo = '<span class="dsv-macro">[[dsv_staff]]</span>';
+  	return str_ireplace('[[dsv-staff]]', $parsedinfo, $text);
+}
+?>

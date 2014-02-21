@@ -1,0 +1,5 @@
+name = Daisy Contact List
+description = Fetches the staff contact list from Daisy
+package = "Input filters"
+dependencies[] = filter
+core = 7.x
